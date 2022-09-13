@@ -11,8 +11,8 @@ public class IndexController {
         return "Get Spring Boot";
     }
 
-    @GetMapping("/login/{login}/senha/{senha}")
-    public String login(@PathVariable("login") String login, @PathVariable("senha") String senha) {
+    @PostMapping("/login")
+    public String login(@RequestParam("login") String login, @RequestParam("senha") String senha) {
         return "Login: " + login + ", Senha: " + senha;
     }
 
