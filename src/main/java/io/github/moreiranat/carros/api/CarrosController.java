@@ -31,10 +31,16 @@ public class CarrosController {
 
     @PostMapping
     public String post(@RequestBody Carro carro) {
-        Carro c = carroService.save(carro);
+        Carro c = carroService.insert(carro);
 
         return "Carro salvo com sucesso: " + c.getId();
+    }
 
+    @PutMapping("/{id}")
+    public String put(@PathVariable("id") Long id, @RequestBody Carro carro) {
+        Carro c = carroService.update(carro, id);
+
+        return "Carro atualizado com sucesso: " + c.getId();
     }
 
 }
